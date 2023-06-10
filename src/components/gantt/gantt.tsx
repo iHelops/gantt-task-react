@@ -10,11 +10,8 @@ import { GridProps } from "../grid/grid";
 import { ganttDateRange, seedDates } from "../../helpers/date-helper";
 import { CalendarProps } from "../calendar/calendar";
 import { TaskGanttContentProps } from "./task-gantt-content";
-import { TaskListHeaderDefault } from "../task-list/task-list-header";
-import { TaskListTableDefault } from "../task-list/task-list-table";
 import { StandardTooltipContent, Tooltip } from "../other/tooltip";
 import { VerticalScroll } from "../other/vertical-scroll";
-import { TaskListProps, TaskList } from "../task-list/task-list";
 import { TaskGantt } from "./task-gantt";
 import { BarTask } from "../../types/bar-task";
 import { convertToBarTasks } from "../../helpers/bar-helper";
@@ -53,11 +50,9 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   fontFamily = "Arial, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue",
   fontSize = "14px",
   arrowIndent = 20,
-  todayColor = "rgba(252, 248, 227, 0.5)",
+  todayColor = "rgba(230, 54, 54, .1)",
   viewDate,
   TooltipContent = StandardTooltipContent,
-  TaskListHeader = TaskListHeaderDefault,
-  TaskListTable = TaskListTableDefault,
   onDateChange,
   onProgressChange,
   onDoubleClick,
@@ -382,11 +377,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     }
     setSelectedTask(newSelectedTask);
   };
-  const handleExpanderClick = (task: Task) => {
-    if (onExpanderClick && task.hideChildren !== undefined) {
-      onExpanderClick({ ...task, hideChildren: !task.hideChildren });
-    }
-  };
   const gridProps: GridProps = {
     columnWidth,
     svgWidth,
@@ -431,24 +421,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onDelete,
   };
 
-  const tableProps: TaskListProps = {
-    rowHeight,
-    rowWidth: listCellWidth,
-    fontFamily,
-    fontSize,
-    tasks: barTasks,
-    locale,
-    headerHeight,
-    scrollY,
-    ganttHeight,
-    horizontalContainerClass: styles.horizontalContainer,
-    selectedTask,
-    taskListRef,
-    setSelectedTask: handleSelectedTask,
-    onExpanderClick: handleExpanderClick,
-    TaskListHeader,
-    TaskListTable,
-  };
   return (
     <div>
       <div
@@ -457,7 +429,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         tabIndex={0}
         ref={wrapperRef}
       >
-        {listCellWidth && <TaskList {...tableProps} />}
         <TaskGantt
           gridProps={gridProps}
           calendarProps={calendarProps}
@@ -495,9 +466,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
       </div>
       <HorizontalScroll
         svgWidth={svgWidth}
-        taskListWidth={taskListWidth}
         scroll={scrollX}
-        rtl={rtl}
         onScroll={handleScrollX}
       />
     </div>

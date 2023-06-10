@@ -5,16 +5,6 @@ export function initTasks() {
   const tasks: Task[] = [
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
-      name: "Some Project",
-      id: "ProjectSample",
-      progress: 25,
-      type: "project",
-      hideChildren: false,
-      displayOrder: 1,
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
       end: new Date(
         currentDate.getFullYear(),
         currentDate.getMonth(),

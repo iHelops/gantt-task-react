@@ -111,7 +111,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             value={topValue}
             x1Line={columnWidth * i}
             y1Line={0}
-            y2Line={topDefaultHeight}
+            y2Line={headerHeight}
             xText={Math.abs(xText)}
             yText={topDefaultHeight * 0.9}
           />
@@ -155,7 +155,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             value={topValue}
             x1Line={columnWidth * i}
             y1Line={0}
-            y2Line={topDefaultHeight}
+            y2Line={headerHeight}
             xText={xText}
             yText={topDefaultHeight * 0.9}
           />
@@ -201,7 +201,7 @@ export const Calendar: React.FC<CalendarProps> = ({
               value={topValue}
               x1Line={columnWidth * i + weeksCount * columnWidth}
               y1Line={0}
-              y2Line={topDefaultHeight}
+              y2Line={headerHeight}
               xText={columnWidth * i + columnWidth * weeksCount * 0.5}
               yText={topDefaultHeight * 0.9}
             />
@@ -247,7 +247,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             value={topValue}
             x1Line={columnWidth * (i + 1)}
             y1Line={0}
-            y2Line={topDefaultHeight}
+            y2Line={headerHeight}
             xText={
               columnWidth * (i + 1) -
               getDaysInMonth(date.getMonth(), date.getFullYear()) *
@@ -297,7 +297,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             value={topValue}
             x1Line={columnWidth * i + ticks * columnWidth}
             y1Line={0}
-            y2Line={topDefaultHeight}
+            y2Line={headerHeight}
             xText={columnWidth * i + ticks * columnWidth * 0.5}
             yText={topDefaultHeight * 0.9}
           />
@@ -344,7 +344,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             value={topValue}
             x1Line={columnWidth * i}
             y1Line={0}
-            y2Line={topDefaultHeight}
+            y2Line={headerHeight}
             xText={columnWidth * (i + topPosition)}
             yText={topDefaultHeight * 0.9}
           />
