@@ -68,7 +68,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             y1Line={0}
             y2Line={headerHeight}
             xText={xText}
-            yText={topDefaultHeight * 0.9}
+            yText={topDefaultHeight * 0.6}
           />
         );
       }
@@ -113,7 +113,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             y1Line={0}
             y2Line={headerHeight}
             xText={Math.abs(xText)}
-            yText={topDefaultHeight * 0.9}
+            yText={topDefaultHeight * 0.6}
           />
         );
       }
@@ -157,7 +157,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             y1Line={0}
             y2Line={headerHeight}
             xText={xText}
-            yText={topDefaultHeight * 0.9}
+            yText={topDefaultHeight * 0.6}
           />
         );
       }
@@ -203,7 +203,7 @@ export const Calendar: React.FC<CalendarProps> = ({
               y1Line={0}
               y2Line={headerHeight}
               xText={columnWidth * i + columnWidth * weeksCount * 0.5}
-              yText={topDefaultHeight * 0.9}
+              yText={topDefaultHeight * 0.6}
             />
           );
         }
@@ -221,9 +221,8 @@ export const Calendar: React.FC<CalendarProps> = ({
     const dates = dateSetup.dates;
     for (let i = 0; i < dates.length; i++) {
       const date = dates[i];
-      const bottomValue = `${getLocalDayOfWeek(date, locale, "short")}, ${date
-        .getDate()
-        .toString()}`;
+      const dayName = getLocalDayOfWeek(date, locale, "short");
+      const dayNumber = date.getDate().toString();
 
       bottomValues.push(
         <text
@@ -232,7 +231,16 @@ export const Calendar: React.FC<CalendarProps> = ({
           x={columnWidth * i + columnWidth * 0.5}
           className={styles.calendarBottomText}
         >
-          {bottomValue}
+          <tspan
+            y={headerHeight * 0.6}
+            x={columnWidth * i + columnWidth * 0.5}
+
+          >{dayName}</tspan>
+          <tspan
+            y={headerHeight * 0.88}
+            x={columnWidth * i + columnWidth * 0.5}
+            style={{fill: '#838383'}}
+          >{dayNumber}</tspan>
         </text>
       );
       if (
@@ -254,7 +262,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 columnWidth *
                 0.5
             }
-            yText={topDefaultHeight * 0.9}
+            yText={topDefaultHeight * 0.6}
           />
         );
       }
@@ -299,7 +307,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             y1Line={0}
             y2Line={headerHeight}
             xText={columnWidth * i + ticks * columnWidth * 0.5}
-            yText={topDefaultHeight * 0.9}
+            yText={topDefaultHeight * 0.6}
           />
         );
       }
@@ -346,7 +354,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             y1Line={0}
             y2Line={headerHeight}
             xText={columnWidth * (i + topPosition)}
-            yText={topDefaultHeight * 0.9}
+            yText={topDefaultHeight * 0.6}
           />
         );
       }

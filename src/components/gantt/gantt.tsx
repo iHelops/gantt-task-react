@@ -23,10 +23,10 @@ import styles from "./gantt.module.css";
 
 export const Gantt: React.FunctionComponent<GanttProps> = ({
   tasks,
-  headerHeight = 50,
-  columnWidth = 60,
+  headerHeight = 65,
+  columnWidth = 40,
   listCellWidth = "155px",
-  rowHeight = 49,
+  rowHeight = 45,
   ganttHeight = 0,
   viewMode = ViewMode.Day,
   preStepsCount = 1,

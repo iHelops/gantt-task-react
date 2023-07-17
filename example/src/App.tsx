@@ -9,14 +9,6 @@ const App = () => {
   const [view, setView] = React.useState<ViewMode>(ViewMode.Day);
   const [tasks, setTasks] = React.useState<Task[]>(initTasks());
   const [isChecked, setIsChecked] = React.useState(true);
-  let columnWidth = 65;
-  if (view === ViewMode.Year) {
-    columnWidth = 350;
-  } else if (view === ViewMode.Month) {
-    columnWidth = 300;
-  } else if (view === ViewMode.Week) {
-    columnWidth = 250;
-  }
 
   const handleTaskChange = (task: Task) => {
     console.log("On date change Id:" + task.id);
@@ -86,7 +78,6 @@ const App = () => {
         onSelect={handleSelect}
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
-        columnWidth={columnWidth}
         locale='ru'
       />
       <h3>Gantt With Limited Height</h3>
@@ -102,7 +93,6 @@ const App = () => {
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
         ganttHeight={300}
-        columnWidth={columnWidth}
       />
     </div>
   );
